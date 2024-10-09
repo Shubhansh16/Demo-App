@@ -54,5 +54,5 @@ dependencies {
 
   //  implementation("com.yuyakaido.android:card-stack-view:2.3.4")
    // implementation("com.github.swapnil1104:OtpEditText:1.0.2-rc")
-  //  implementation("com.yqritc:android-scalablevideoview:1.0.4")
+    //implementation("com.yqritc:android-scalablevideoview:1.0.4")
 }

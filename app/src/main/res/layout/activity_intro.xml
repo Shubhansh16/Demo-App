@@ -18,19 +18,19 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <com.google.android.material.tabs.TabLayout
-        android:layout_width="150dp"
         android:id="@+id/viewPagerTab"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="80dp"
         android:background="@color/transparent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/next"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/next"
+        app:layout_constraintStart_toStartOf="@id/prev"
+        app:tabBackground="@drawable/selector_dot_tab"
         app:tabGravity="center"
         app:tabIndicatorHeight="0dp"
-        app:tabBackground="@drawable/selector_dot_tab"
         app:tabMaxWidth="25dp"
-        app:tabTextColor="@color/transparent"
-        android:layout_height="wrap_content"/>
+        app:tabTextColor="@color/transparent" />
 
     <com.google.android.material.button.MaterialButton
         android:layout_width="wrap_content"

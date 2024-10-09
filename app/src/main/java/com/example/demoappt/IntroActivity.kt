@@ -1,14 +1,13 @@
 package com.example.demoappt
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
-import androidx.transition.Visibility
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.example.demoappt.databinding.ActivityIntroBinding
@@ -16,6 +15,7 @@ import com.example.demoappt.fragments.FirstFragment
 import com.example.demoappt.fragments.SecondFragment
 import com.example.demoappt.fragments.ThirdFragment
 import com.google.android.material.tabs.TabLayoutMediator
+
 
 class IntroActivity : Fragment() {
 
@@ -78,6 +78,11 @@ class IntroActivity : Fragment() {
                         binding.prev.visibility= View.VISIBLE
                     }
                 }
+            }
+
+            if(currentPage==2){
+                val intent = Intent(context, GoogleActivity::class.java)
+                requireContext().startActivity(intent)
             }
         }
 
