@@ -2,6 +2,7 @@ package com.example.demoappt
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,12 +16,15 @@ import com.example.demoappt.fragments.FirstFragment
 import com.example.demoappt.fragments.SecondFragment
 import com.example.demoappt.fragments.ThirdFragment
 import com.google.android.material.tabs.TabLayoutMediator
+import com.google.firebase.auth.FirebaseAuth
 
 
+@Suppress("DEPRECATION")
 class IntroActivity : Fragment() {
 
    private lateinit var binding: ActivityIntroBinding
    private lateinit var viewPager: ViewPager2
+   private lateinit var auth: FirebaseAuth
 
    var currentPage=0
 
@@ -40,6 +44,9 @@ class IntroActivity : Fragment() {
         var activity = (activity as FragmentActivity).supportFragmentManager
         val pagerAdapter = ViewPagerAdapter(activity)
         binding.viewPager.adapter = pagerAdapter
+
+        auth= FirebaseAuth.getInstance()
+        val user = auth.currentUser
 
         viewPager.registerOnPageChangeCallback(object :ViewPager2.OnPageChangeCallback(){
             override fun onPageSelected(position: Int){
@@ -81,8 +88,17 @@ class IntroActivity : Fragment() {
             }
 
             if(currentPage==2){
-                val intent = Intent(context, GoogleActivity::class.java)
-                requireContext().startActivity(intent)
+
+                Handler().postDelayed({
+                    if (user!=null){
+                        val discoverIntent= Intent(context, DiscoverActivity::class.java)
+                        requireContext().startActivity(discoverIntent)
+                    } else {
+                        val intent = Intent(context, GoogleActivity::class.java)
+                        requireContext().startActivity(intent)
+                    }
+                },2000)
+
             }
         }
 

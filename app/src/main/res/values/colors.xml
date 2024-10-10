@@ -4,5 +4,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="transparent">#00ffffff</color>
     <color name="blue">#1F4788</color>
+    <color name="line">#a9a9a9</color>
     <color name="google_btn_background">#692F60</color>
 </resources>
