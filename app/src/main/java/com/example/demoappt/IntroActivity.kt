@@ -88,17 +88,8 @@ class IntroActivity : Fragment() {
             }
 
             if(currentPage==2){
-
-                Handler().postDelayed({
-                    if (user!=null){
-                        val discoverIntent= Intent(context, DiscoverActivity::class.java)
-                        requireContext().startActivity(discoverIntent)
-                    } else {
-                        val intent = Intent(context, GoogleActivity::class.java)
-                        requireContext().startActivity(intent)
-                    }
-                },2000)
-
+                val discoverIntent= Intent(context, GoogleActivity::class.java)
+                requireContext().startActivity(discoverIntent)
             }
         }
 
